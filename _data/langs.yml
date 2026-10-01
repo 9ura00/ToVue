@@ -1,0 +1,78 @@
+- code: en
+  dir: ""
+  label: English
+  home: Home
+  terms: Terms of Use
+  privacy: Privacy Policy
+  support: Support
+- code: ja
+  dir: "ja/"
+  label: 日本語
+  home: ホーム
+  terms: 利用規約
+  privacy: プライバシーポリシー
+  support: サポート
+- code: zh-Hans
+  dir: "zh-hans/"
+  label: 简体中文
+  home: 首页
+  terms: 使用条款
+  privacy: 隐私政策
+  support: 支持
+- code: zh-Hant
+  dir: "zh-hant/"
+  label: 繁體中文
+  home: 首頁
+  terms: 使用條款
+  privacy: 隱私權政策
+  support: 支援
+- code: ko
+  dir: "ko/"
+  label: 한국어
+  home: 홈
+  terms: 이용약관
+  privacy: 개인정보 처리방침
+  support: 지원
+- code: fr
+  dir: "fr/"
+  label: Français
+  home: Accueil
+  terms: Conditions d'utilisation
+  privacy: Politique de confidentialité
+  support: Assistance
+- code: de
+  dir: "de/"
+  label: Deutsch
+  home: Startseite
+  terms: Nutzungsbedingungen
+  privacy: Datenschutzerklärung
+  support: Support
+- code: es
+  dir: "es/"
+  label: Español
+  home: Inicio
+  terms: Términos de uso
+  privacy: Política de privacidad
+  support: Soporte
+- code: it
+  dir: "it/"
+  label: Italiano
+  home: Home
+  terms: Termini di utilizzo
+  privacy: Informativa sulla privacy
+  support: Assistenza
+- code: pt-BR
+  dir: "pt-br/"
+  label: Português (Brasil)
+  home: Início
+  terms: Termos de Uso
+  privacy: Política de Privacidade
+  support: Suporte
+- code: ar
+  dir: "ar/"
+  rtl: true
+  label: العربية
+  home: الرئيسية
+  terms: شروط الاستخدام
+  privacy: سياسة الخصوصية
+  support: الدعم

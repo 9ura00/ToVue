@@ -1,0 +1,37 @@
+<!doctype html>
+{% if page.permalink contains 'privacy' %}{% assign doc = 'privacy' %}{% elsif page.permalink contains 'support' %}{% assign doc = 'support' %}{% else %}{% assign doc = 'terms' %}{% endif %}
+{% assign cur = site.data.langs | where: 'code', page.lang | first %}
+<html lang="{{ page.lang }}"{% if cur.rtl %} dir="rtl"{% endif %}>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ page.title }} — ToVue</title>
+<meta name="description" content="ToVue — {{ page.title }}">
+<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.permalink }}">
+{% for l in site.data.langs %}<link rel="alternate" hreflang="{{ l.code }}" href="{{ site.url }}{{ site.baseurl }}/{{ l.dir }}{{ doc }}/">
+{% endfor %}<link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ site.baseurl }}/{{ doc }}/">
+<meta property="og:site_name" content="ToVue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{ page.title }} — ToVue">
+<meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.permalink }}">
+<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#09131b">
+<link rel="icon" href="{{ '/favicon.png' | relative_url }}">
+<link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/legal.css' | relative_url }}">
+</head>
+<body>
+<header class="top">
+<a class="brand" href="{{ '/' | append: cur.dir | relative_url }}"><img src="{{ '/assets/icon-512.png' | relative_url }}" alt="">ToVue</a>
+<details class="lang"><summary>{{ cur.label }}</summary><nav>{% for l in site.data.langs %}<a href="{{ '/' | append: l.dir | append: doc | append: '/' | relative_url }}" lang="{{ l.code }}"{% if l.code == page.lang %} aria-current="page"{% endif %}>{{ l.label }}</a>{% endfor %}</nav></details>
+</header>
+<main class="doc">
+{{ content }}
+</main>
+<footer>
+<nav><a href="{{ '/' | append: cur.dir | append: 'terms/' | relative_url }}">{{ cur.terms }}</a><a href="{{ '/' | append: cur.dir | append: 'privacy/' | relative_url }}">{{ cur.privacy }}</a><a href="{{ '/' | append: cur.dir | append: 'support/' | relative_url }}">{{ cur.support }}</a></nav>
+<div>© 2026 ToVue</div>
+</footer>
+</body>
+</html>
