@@ -53,5 +53,12 @@
 <nav><a href="../ja/terms/">利用規約</a><a href="../ja/privacy/">プライバシーポリシー</a><a href="../ja/support/">サポート</a></nav>
 <div>© 2026 ToVue</div>
 </footer>
+<script>document.querySelectorAll(".lang nav a").forEach(function(a) {
+    a.addEventListener("click", function() {
+        try {
+            sessionStorage.setItem("tv_pick", "1");
+        } catch (_) {}
+    });
+})</script>
 </body>
 </html>

@@ -53,5 +53,12 @@
 <nav><a href="../it/terms/">Termini di utilizzo</a><a href="../it/privacy/">Informativa sulla privacy</a><a href="../it/support/">Assistenza</a></nav>
 <div>© 2026 ToVue</div>
 </footer>
+<script>document.querySelectorAll(".lang nav a").forEach(function(a) {
+    a.addEventListener("click", function() {
+        try {
+            sessionStorage.setItem("tv_pick", "1");
+        } catch (_) {}
+    });
+})</script>
 </body>
 </html>

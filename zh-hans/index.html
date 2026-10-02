@@ -53,5 +53,12 @@
 <nav><a href="../zh-hans/terms/">使用条款</a><a href="../zh-hans/privacy/">隐私政策</a><a href="../zh-hans/support/">支持</a></nav>
 <div>© 2026 ToVue</div>
 </footer>
+<script>document.querySelectorAll(".lang nav a").forEach(function(a) {
+    a.addEventListener("click", function() {
+        try {
+            sessionStorage.setItem("tv_pick", "1");
+        } catch (_) {}
+    });
+})</script>
 </body>
 </html>

@@ -20,6 +20,35 @@
 <link rel="icon" href="{{ '/favicon.png' | relative_url }}">
 <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/legal.css' | relative_url }}">
+{% if page.lang == 'en' %}<script>
+
+(function(){
+  try{
+    if(sessionStorage.getItem('tv_pick')) return;
+    if(document.referrer && new URL(document.referrer).origin === location.origin) return;
+  }catch(_){}
+  function tvLangDir(){
+    var list = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || '']);
+    for(var i = 0; i < list.length; i++){
+      var n = String(list[i]).toLowerCase();
+      if(n.indexOf('en') === 0) return '';
+      if(n.indexOf('ja') === 0) return 'ja/';
+      if(n.indexOf('ko') === 0) return 'ko/';
+      if(n.indexOf('zh') === 0) return /hant|-tw|-hk|-mo/.test(n) ? 'zh-hant/' : 'zh-hans/';
+      if(n.indexOf('fr') === 0) return 'fr/';
+      if(n.indexOf('de') === 0) return 'de/';
+      if(n.indexOf('es') === 0) return 'es/';
+      if(n.indexOf('it') === 0) return 'it/';
+      if(n.indexOf('pt') === 0) return 'pt-br/';
+      if(n.indexOf('ar') === 0) return 'ar/';
+    }
+    return '';
+  }
+  var d = tvLangDir();
+  if(d) location.replace('{{ site.baseurl }}/' + d + '{{ doc }}/' + location.hash);
+})();
+</script>
+{% endif %}
 </head>
 <body>
 <header class="top">
@@ -33,5 +62,11 @@
 <nav><a href="{{ '/' | append: cur.dir | append: 'terms/' | relative_url }}">{{ cur.terms }}</a><a href="{{ '/' | append: cur.dir | append: 'privacy/' | relative_url }}">{{ cur.privacy }}</a><a href="{{ '/' | append: cur.dir | append: 'support/' | relative_url }}">{{ cur.support }}</a></nav>
 <div>© 2026 ToVue</div>
 </footer>
+<script>
+
+document.querySelectorAll('.lang nav a').forEach(function(a){
+  a.addEventListener('click', function(){ try{ sessionStorage.setItem('tv_pick', '1'); }catch(_){} });
+});
+</script>
 </body>
 </html>
