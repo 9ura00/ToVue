@@ -5,4 +5,4 @@ baseurl: /ToVue
 markdown: kramdown
 kramdown:
   input: GFM
-exclude: [build.py, publish.py, README.md]
+exclude: [build.py, publish.py, make_og.swift, README.md]

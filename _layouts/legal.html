@@ -6,15 +6,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{{ page.title }} — ToVue</title>
-<meta name="description" content="ToVue — {{ page.title }}">
+{% assign desc_key = "desc_" | append: doc %}<meta name="description" content="{{ cur[desc_key] | escape }}">
 <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.permalink }}">
 {% for l in site.data.langs %}<link rel="alternate" hreflang="{{ l.code }}" href="{{ site.url }}{{ site.baseurl }}/{{ l.dir }}{{ doc }}/">
 {% endfor %}<link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ site.baseurl }}/{{ doc }}/">
 <meta property="og:site_name" content="ToVue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="{{ page.title }} — ToVue">
+<meta property="og:description" content="{{ cur[desc_key] | escape }}">
+<meta property="og:locale" content="{{ cur.og_locale }}">
+{% for l in site.data.langs %}{% if l.code != page.lang %}<meta property="og:locale:alternate" content="{{ l.og_locale }}">
+{% endif %}{% endfor %}
 <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.permalink }}">
-<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/assets/og.jpg">
+<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/assets/og-{{ page.lang | downcase }}.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#09131b">
 <link rel="icon" href="{{ '/favicon.png' | relative_url }}">
