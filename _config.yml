@@ -1,8 +1,0 @@
-title: ToVue
-description: 3D maps you can fly like a drone, for iPhone and iPad.
-url: https://9ura00.github.io
-baseurl: /ToVue
-markdown: kramdown
-kramdown:
-  input: GFM
-exclude: [build.py, publish.py, make_og.swift, README.md]
